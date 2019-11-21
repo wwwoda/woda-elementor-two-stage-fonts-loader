@@ -1,8 +1,8 @@
 <?php
 
-namespace Theme\Elementor;
+namespace Woda\WordPress\Elementor\TwoStageFontsLoader;
 
-final class TwoStepFontLoading {
+final class Loader {
     // Set in WordPress Dashboard > Elementor > Settings > Style
     public static $defaultGenericFonts = 'sans-serif';
     // Set in WordPress Dashboard > Elementor > Settings > Custom Fonts

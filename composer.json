@@ -1,0 +1,38 @@
+{
+  "name": "woda/wp-elementor-two-stage-font-loader",
+  "description": "",
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "performance",
+    "fonts"
+  ],
+  "license": "GPLv2 or later",
+  "homepage": "https://github.com/wwwoda/wp-plugin-elementor-two-stage-fonts-loader",
+  "authors": [
+    {
+      "name": "Woda",
+      "email": "hello@woda.at",
+      "homepage": "https://www.woda.at"
+    },
+    {
+      "name": "David Mondok",
+      "email": "david@woda.at"
+    },
+    {
+      "name": "Wolfgang Schäfer",
+      "email": "wolfgang@woda.at"
+    }
+  ],
+  "type": "wordpress-plugin",
+  "support": {
+    "issues": "https://github.com/wwwoda/wp-plugin-elementor-two-stage-fonts-loader/issues",
+    "source": "https://github.com/wwwoda/wp-plugin-elementor-two-stage-fonts-loader"
+  },
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Woda\\WordPress\\Elementor\\TwoStageFontsLoader\\": "src/"
+    }
+  }
+}
