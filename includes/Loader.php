@@ -28,6 +28,8 @@ final class Loader
     public static $fontFamilies;
 
     /**
+     * Main registration function for plugin
+     *
      * @param array|null $settings
      */
     public static function register(?array $settings = []): void
@@ -48,6 +50,25 @@ final class Loader
     }
 
     /**
+     * Calls the global css updater to add stage 1 and stage 2 specific rules
+     *
+     * @param Dynamic_CSS $css
+     */
+    public static function generateGlobalCSS($css): void
+    {
+        self::addRulesToGlobalCSS($css, 'html:not(.fonts-1-loaded)', static function ($scheme_value) {
+            return self::getFallBackFontFamily($scheme_value);
+        });
+        self::addRulesToGlobalCSS($css, 'html.fonts-1-loaded:not(.fonts-2-loaded)', static function ($scheme_value) {
+            return self::getInitialFontFamily($scheme_value);
+        });
+    }
+
+    /**
+     * Function to be executed on Elementor's elementor/css-file/dynamic/parse action hook
+     *
+     * Loops through all Elementor elements in a specific post and passes their instance to the element parser
+     *
      * @param Dynamic_CSS $css
      */
     public static function generateDynamicCSS($css): void
@@ -67,6 +88,8 @@ final class Loader
     }
 
     /**
+     * Passes an element to the css updater and invokes itself with all child elements
+     *
      * @param Dynamic_CSS $css
      * @param Element_Base $element
      */
@@ -80,19 +103,8 @@ final class Loader
     }
 
     /**
-     * @param Dynamic_CSS $css
-     */
-    public static function generateGlobalCSS($css): void
-    {
-        self::addRulesToGlobalCSS($css, 'html:not(.fonts-1-loaded)', static function ($scheme_value) {
-            return self::getFallBackFontFamily($scheme_value);
-        });
-        self::addRulesToGlobalCSS($css, 'html.fonts-1-loaded:not(.fonts-2-loaded)', static function ($scheme_value) {
-            return self::getInitialFontFamily($scheme_value);
-        });
-    }
-
-    /**
+     * Loops through all Elementor widget types and creates stage specific CSS rules for each
+     *
      * @param Dynamic_CSS $css
      * @param string $selectorPrefix
      * @param callable $fontFamilyGetter
@@ -136,6 +148,8 @@ final class Loader
     }
 
     /**
+     * Checks an element's controls for custom font family usage and creates font-family rules for each
+     *
      * @param Dynamic_CSS $css
      * @param Element_Base $element
      */
@@ -176,6 +190,8 @@ final class Loader
     }
 
     /**
+     * Checks if an element is using custom fonts that are not registered with the two stage font loader
+     *
      * @param array $fontFamilySettings
      * @param Element_Base $element
      */
@@ -191,6 +207,8 @@ final class Loader
     }
 
     /**
+     * Checks the settings passed to the plugin and gives feedback when incorrectly set up
+     *
      * @param array $fontFamilies
      * @return bool
      */
@@ -232,6 +250,9 @@ final class Loader
     }
 
     /**
+     * Retrieves the font family to be used at stage 0 for a specific font family registered with the two stage
+     * font loader.
+     *
      * @param string $fontFamily
      * @return string
      */
@@ -245,6 +266,9 @@ final class Loader
     }
 
     /**
+     * Retrieves the font family to be used at stage 1 for a specific font family registered with the two stage
+     * font loader.
+     *
      * @param string $fontFamily
      * @return string
      */
