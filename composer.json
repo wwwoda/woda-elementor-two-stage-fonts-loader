@@ -29,10 +29,12 @@
     "issues": "https://github.com/wwwoda/wp-plugin-elementor-two-stage-fonts-loader/issues",
     "source": "https://github.com/wwwoda/wp-plugin-elementor-two-stage-fonts-loader"
   },
-  "require": {},
+  "require": {
+    "yahnis-elsts/plugin-update-checker": "^4.8"
+  },
   "autoload": {
     "psr-4": {
-      "Woda\\WordPress\\Elementor\\TwoStageFontsLoader\\": "src/"
+      "Woda\\WordPress\\Elementor\\TwoStageFontsLoader\\": "includes/"
     }
   }
 }

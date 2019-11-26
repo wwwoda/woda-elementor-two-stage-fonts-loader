@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Woda\\WordPress\\Elementor\\TwoStageFontsLoader\\' => array($baseDir . '/src'),
+    'Woda\\WordPress\\Elementor\\TwoStageFontsLoader\\' => array($baseDir . '/includes'),
 );

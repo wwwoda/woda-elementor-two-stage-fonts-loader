@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit66bf16cb479380be1e869408e9b8cbb2
 {
+    public static $files = array (
+        'eb560c198217526cfde8ceb63ae508de' => __DIR__ . '/..' . '/yahnis-elsts/plugin-update-checker/load-v4p8.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'W' => 
         array (
@@ -16,7 +20,7 @@ class ComposerStaticInit66bf16cb479380be1e869408e9b8cbb2
     public static $prefixDirsPsr4 = array (
         'Woda\\WordPress\\Elementor\\TwoStageFontsLoader\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/includes',
         ),
     );
 
