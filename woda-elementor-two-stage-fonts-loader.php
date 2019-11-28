@@ -7,7 +7,7 @@
  * Author URI:      https://www.woda.at
  * Text Domain:     woda-elementor-two-stage-fonts-loader
  * Domain Path:     /languages
- * Version:         0.1.0
+ * Version:         0.1.2
  *
  * @package         Woda_Elementor_Two_Stage_Fonts_Loader
  */

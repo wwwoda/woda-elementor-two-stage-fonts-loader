@@ -201,7 +201,7 @@ final class Loader
         foreach ($fontFamilies as $fontFamily) {
             if (! array_key_exists($fontFamily, self::$customElementorFonts) && $element->get_settings('typography_typography') === 'custom') {
                 $notice = sprintf('Font family "%s" used on Widget (type: %s, id: %d) without being registered with Elementor Fonts Manager', $fontFamily, $element->get_data('widgetType'), $element->get_data('id'));
-                trigger_error($notice, E_USER_NOTICE);
+                self::triggerError($notice);
             }
         }
     }
@@ -217,29 +217,29 @@ final class Loader
         $check = true;
 
         if (! is_array($fontFamilies) || count($fontFamilies) < 1) {
-            trigger_error('The font family config needs to be an array with at least one entry', E_USER_NOTICE);
+            self::triggerError('The font family config needs to be an array with at least one entry');
             return false;
         }
 
         foreach ($fontFamilies as $key => $config) {
             if (! is_string($config) && ! is_array($config)) {
-                trigger_error('The config for the font family "' . $key . '" must be a string or an array', E_USER_NOTICE);
+                self::triggerError('The config for the font family "' . $key . '" must be a string or an array');
                 $check = false;
             }
             if (is_string($config) && empty($config)) {
-                trigger_error('The (string)config for the font family "' . $key . '" is empty', E_USER_NOTICE);
+                self::triggerError('The (string)config for the font family "' . $key . '" is empty');
                 $check = false;
             }
 
             if (is_array($config)) {
                 if (count($config) !== 2) {
-                    trigger_error('The (array)config for the font family "' . $key . '" contains less/more than 2 values', E_USER_NOTICE);
+                    self::triggerError('The (array)config for the font family "' . $key . '" contains less/more than 2 values');
                     $check = false;
                 }
 
                 foreach ($config as $str) {
                     if (! is_string($str) || empty($str)) {
-                        trigger_error('The (array)config for the font family "' . $key . '" contains something other than two non-empty strings', E_USER_NOTICE);
+                        self::triggerError('The (array)config for the font family "' . $key . '" contains something other than two non-empty strings');
                         $check = false;
                     }
                 }
@@ -283,5 +283,20 @@ final class Loader
             }
         }
         return $fontFamily . ' Initial';
+    }
+
+    /**
+     * Trigger errors only if Query Monitor is activated
+     *
+     * @param $msg
+     * @param int $errorType
+     */
+    private static function triggerError($msg, $errorType = E_USER_NOTICE): void
+    {
+        if (class_exists('QM_Activation') === false) {
+            return;
+        }
+
+        trigger_error($msg, $errorType);
     }
 }
