@@ -7,7 +7,7 @@
  * Author URI:      https://www.woda.at
  * Text Domain:     woda-elementor-two-stage-fonts-loader
  * Domain Path:     /languages
- * Version:         0.1.2
+ * Version:         0.2.0
  *
  * @package         Woda_Elementor_Two_Stage_Fonts_Loader
  */
@@ -32,12 +32,13 @@ add_action('elementor_pro/init', static function (): void {
     Loader::register($settings);
 });
 
+$pluginUpdateChecker = \Puc_v4_Factory::buildUpdateChecker(
+    'https://github.com/wwwoda/wp-plugin-elementor-two-stage-fonts-loader/',
+    __FILE__,
+    'woda-elementor-two-stage-fonts-loader'
+);
+
 $githubAccessToken  = defined( 'GITHUB_ACCESS_TOKEN' ) ? GITHUB_ACCESS_TOKEN : get_option('woda_github_access_token');
 if (!empty($githubAccessToken)) {
-    $pluginUpdateChecker = \Puc_v4_Factory::buildUpdateChecker(
-        'https://github.com/wwwoda/wp-plugin-elementor-two-stage-fonts-loader/',
-        __FILE__,
-        'woda-elementor-two-stage-fonts-loader'
-    );
     $pluginUpdateChecker->setAuthentication($githubAccessToken);
 }
