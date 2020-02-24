@@ -1,15 +1,18 @@
 <?php
 /**
- * Plugin Name:     Woda Elementor Two Stage Fonts Loader
- * Plugin URI:      https://github.com/wwwoda/wp-plugin-elementor-two-stage-fonts-loader
- * Description:     ...
- * Author:          Woda
- * Author URI:      https://www.woda.at
- * Text Domain:     woda-elementor-two-stage-fonts-loader
- * Domain Path:     /languages
- * Version:         0.2.0
+ * Plugin Name:       Woda Elementor Two Stage Fonts Loader
+ * Plugin URI:        https://github.com/wwwoda/wp-plugin-elementor-two-stage-fonts-loader
+ * Description:       ...
+ * Version:           0.3.0
+ * Author:            Woda
+ * Author URI:        https://www.woda.at
+ * License:           GNU General Public License v2
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+ * Domain Path:       /languages
+ * Text Domain:       woda-scripts-styles-loader
+ * GitHub Plugin URI: https://github.com/wwwoda/wp-plugin-elementor-two-stage-fonts-loader
  *
- * @package         Woda_Elementor_Two_Stage_Fonts_Loader
+ * @package           Woda_Elementor_Two_Stage_Fonts_Loader
  */
 
 // Copyright (c) 2019 Woda Digital OG. All rights reserved.
@@ -31,14 +34,3 @@ add_action('elementor_pro/init', static function (): void {
     $settings = apply_filters('woda_elementor_two_stage_fonts_loader_settings', []);
     Loader::register($settings);
 });
-
-$pluginUpdateChecker = \Puc_v4_Factory::buildUpdateChecker(
-    'https://github.com/wwwoda/wp-plugin-elementor-two-stage-fonts-loader/',
-    __FILE__,
-    'woda-elementor-two-stage-fonts-loader'
-);
-
-$githubAccessToken  = defined( 'GITHUB_ACCESS_TOKEN' ) ? GITHUB_ACCESS_TOKEN : get_option('woda_github_access_token');
-if (!empty($githubAccessToken)) {
-    $pluginUpdateChecker->setAuthentication($githubAccessToken);
-}

@@ -31,4 +31,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 * Use constant GITHUB_ACCESS_TOKEN for updater if available
 * Change fallback option key to woda_github_access_token
 
+= 0.3.0 =
+* Remove internal GitHub Updater logic
+
 `<?php code(); // goes in backticks ?>`
