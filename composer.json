@@ -1,5 +1,5 @@
 {
-  "name": "woda/wp-elementor-two-stage-font-loader",
+  "name": "woda/elementor-two-stage-font-loader",
   "description": "",
   "keywords": [
     "wordpress",
@@ -8,7 +8,7 @@
     "fonts"
   ],
   "license": "GPLv2 or later",
-  "homepage": "https://github.com/wwwoda/wp-plugin-elementor-two-stage-fonts-loader",
+  "homepage": "https://github.com/wwwoda/woda-elementor-two-stage-fonts-loader",
   "authors": [
     {
       "name": "Woda",
@@ -26,8 +26,8 @@
   ],
   "type": "wordpress-plugin",
   "support": {
-    "issues": "https://github.com/wwwoda/wp-plugin-elementor-two-stage-fonts-loader/issues",
-    "source": "https://github.com/wwwoda/wp-plugin-elementor-two-stage-fonts-loader"
+    "issues": "https://github.com/wwwoda/woda-elementor-two-stage-fonts-loader/issues",
+    "source": "https://github.com/wwwoda/woda-elementor-two-stage-fonts-loader"
   },
   "require": {
     "yahnis-elsts/plugin-update-checker": "^4.9"
