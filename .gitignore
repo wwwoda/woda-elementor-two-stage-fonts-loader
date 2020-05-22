@@ -1,9 +1,10 @@
-.DS_Store
-phpcs.xml
-phpunit.xml
-Thumbs.db
-wp-cli.local.yml
+### Plugin ###
+assets
+gulppress.local.config.ts
+
+### Composer ###
+vendor
+
+### Node ###
 node_modules/
-*.sql
-*.tar.gz
-*.zip
+yarn.lock

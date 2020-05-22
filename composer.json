@@ -1,5 +1,5 @@
 {
-  "name": "woda/elementor-two-stage-font-loader",
+  "name": "woda/wp-elementor-two-stage-font-loader",
   "description": "",
   "keywords": [
     "wordpress",
@@ -7,7 +7,7 @@
     "performance",
     "fonts"
   ],
-  "license": "GPLv2 or later",
+  "license": "GPLv3",
   "homepage": "https://github.com/wwwoda/woda-elementor-two-stage-fonts-loader",
   "authors": [
     {
@@ -30,6 +30,7 @@
     "source": "https://github.com/wwwoda/woda-elementor-two-stage-fonts-loader"
   },
   "require": {
+    "php": ">=7.2.0",
     "yahnis-elsts/plugin-update-checker": "^4.9"
   },
   "autoload": {
